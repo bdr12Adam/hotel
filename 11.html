@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RÉSERVEZ VOTRE CHAMBRE</title>
+    <link rel="stylesheet" href="11.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h2>RÉSERVEZ VOTRE CHAMBRE</h2>
+        <form action="#" method="POST">
+          <label for="name">Nom</label>
+          <input class="inp" type="text" id="name" name="name" required />
+
+          <label for="email">E-mail</label>
+          <input class="inp" type="email" id="email" name="email" required />
+
+          <label for="hotel">Choisissez un Hôtel</label>
+          <select class="inp" id="hotel" name="hotel" required>
+            <option value="hotel1">The Plaza Hotel</option>
+            <option value="hotel2">Ritz Agadir</option>
+            <option value="hotel3">The Casablanca</option>
+            <option value="hotel4">The Ritz-Carlton Saïdia</option>
+            <option value="hotel5">Marina Bay Sands Rabat</option>
+          </select>
+
+          <label for="checkin">Date d'arrivée</label>
+          <input class="inp" type="date" id="checkin" name="checkin" required />
+
+          <label for="checkout">Date de départ</label>
+          <input class="inp" type="date" id="checkout" name="checkout" required />
+
+          <label for="room">Type de chambre</label>
+          <select class="inp" id="room" name="room">
+            <option value="single">Chambre Simple</option>
+            <option value="double">Chambre Double</option>
+            <option value="suite">Suite</option>
+          </select>
+
+          <div class="btn">
+            <button id="btn" class="button">Valider</button>
+          </div>
+        </form>
+      </div>
+      <div class="image-container">
+        <img src="popopo.jpg" alt="Hotel Image" />
+      </div>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+
+      function validation() {
+        let inp = document.getElementById("name");
+        let email = document.getElementById("email");
+        let hotel = document.getElementById("hotel");
+        let checkin = document.getElementById("checkin");
+        let checkout = document.getElementById("checkout");
+        let room = document.getElementById("room");
+
+        if (
+          inp.value !== "" &&
+          email.value !== "" &&
+          hotel.value !== "" &&
+          checkin.value !== "" &&
+          checkout.value !== "" &&
+          room.value !== ""
+        ) {
+          alert("Votre réservation est validée");
+          let reserv = {
+            name: inp.value,
+            email: email.value,
+            hotel: hotel.value,
+            checkin: checkin.value,
+            checkout: checkout.value,
+            room: room.value,
+          };
+          localStorage.setItem("reservation", JSON.stringify(reserv));
+          inp.value = "";
+          email.value = "";
+          hotel.value = "";
+          checkin.value = "";
+          checkout.value = "";
+          room.value = "";
+        } else {
+          alert("Veuillez remplir tous les champs");
+        }
+       
+      }
+
+      btn.onclick = function (e) {
+        e.preventDefault();
+        validation();
+      };
+    </script>
+  </body>
+</html>
