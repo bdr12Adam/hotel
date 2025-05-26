@@ -677,7 +677,7 @@ background-repeat: no-repeat;
 .footer__socials a {
   padding: 6px 10px;
   font-size: 1.25rem;
-  color: var(--text-light);
+  color: black;
   background-color: var(--white);
   border-radius: 100%;
   cursor: pointer;
@@ -685,7 +685,7 @@ background-repeat: no-repeat;
 }
 
 .footer__socials a:hover {
-  color: var(--white);
+  color:white;
   background-color: var(--secondary-color);
 }
 
